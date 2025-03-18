@@ -63,7 +63,7 @@ const ProjectCard = ({
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <Card className="h-full flex flex-col overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/30 transition-all duration-300 relative group">
+      <Card className="h-full flex flex-col overflow-hidden bg-gray-800/90 backdrop-blur-md border border-gray-700/50 hover:border-gray-600 transition-all duration-300 relative group">
         {/* Background gradient effect */}
         <motion.div
           className={`absolute inset-0 bg-gradient-to-br ${categoryGradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-0`}

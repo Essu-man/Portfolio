@@ -28,7 +28,7 @@ const SkillCard = ({
 }: SkillCardProps) => {
   return (
     <motion.div whileHover={{ y: -10, scale: 1.03 }} className="w-full">
-      <Card className="h-full p-6 flex flex-col items-center text-center bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl transition-all duration-300 overflow-hidden relative group">
+      <Card className="h-full p-6 flex flex-col items-center text-center bg-gray-800/90 backdrop-blur-lg border border-gray-700/50 rounded-xl transition-all duration-300 overflow-hidden relative group">
         <motion.div
           className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
         />

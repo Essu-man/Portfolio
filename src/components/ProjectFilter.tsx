@@ -38,7 +38,7 @@ const ProjectFilter = ({
 
   return (
     <motion.div
-      className="w-full max-w-4xl mx-auto mb-8 p-6 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 relative overflow-hidden"
+      className="w-full max-w-4xl mx-auto mb-8 p-6 bg-gray-800/90 backdrop-blur-md rounded-xl border border-gray-700/50 relative overflow-hidden"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -77,7 +77,7 @@ const ProjectFilter = ({
                 <Button
                   variant={isActive ? "default" : "outline"}
                   onClick={() => handleFilterClick(category)}
-                  className={`px-6 py-2 rounded-full transition-all duration-300 relative z-10 ${isActive ? `bg-gradient-to-r ${gradient} border-none text-white hover:shadow-lg` : "bg-white/5 border-white/20 text-white hover:bg-white/10"}`}
+                  className={`px-6 py-2 rounded-full transition-all duration-300 relative z-10 ${isActive ? `bg-gradient-to-r ${gradient} border-none text-white hover:shadow-lg` : "bg-gray-700/80 border-gray-600/50 text-white hover:bg-gray-600/80"}`}
                 >
                   {category}
                 </Button>
