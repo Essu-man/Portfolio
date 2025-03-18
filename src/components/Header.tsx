@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "./ui/button";
+import { ThemeToggle } from "./ThemeToggle";
 
 interface HeaderProps {
   onNavigate?: (section: string) => void;
@@ -88,7 +89,7 @@ const Header = ({ onNavigate = () => {} }: HeaderProps) => {
             ))}
           </ul>
 
-          <div className="flex space-x-3">
+          <div className="flex space-x-3 items-center">
             {socialLinks.map((link, index) => (
               <motion.a
                 key={link.label}
@@ -104,6 +105,7 @@ const Header = ({ onNavigate = () => {} }: HeaderProps) => {
                 {link.icon}
               </motion.a>
             ))}
+            <ThemeToggle />
           </div>
         </nav>
 
@@ -145,7 +147,7 @@ const Header = ({ onNavigate = () => {} }: HeaderProps) => {
                 </li>
               ))}
             </ul>
-            <div className="flex space-x-4 mt-6 pt-6 border-t">
+            <div className="flex space-x-4 mt-6 pt-6 border-t items-center">
               {socialLinks.map((link) => (
                 <a
                   key={link.label}
@@ -158,6 +160,7 @@ const Header = ({ onNavigate = () => {} }: HeaderProps) => {
                   {link.icon}
                 </a>
               ))}
+              <ThemeToggle />
             </div>
           </div>
         </motion.div>
