@@ -28,32 +28,45 @@ const HeroSection = ({
     }
   }, [isInView, animate]);
 
-  const backgroundColors = [
-    "from-purple-700 via-indigo-600 to-blue-700",
-    "from-pink-600 via-purple-600 to-indigo-700",
-    "from-blue-600 via-cyan-500 to-emerald-600",
-  ];
-
-  const randomColor =
-    backgroundColors[Math.floor(Math.random() * backgroundColors.length)];
+  // Removed background colors as we're using SVG patterns now
 
   return (
     <section
       ref={scope}
-      className="min-h-screen flex flex-col justify-center items-center px-4 relative overflow-hidden"
+      className="min-h-screen flex flex-col justify-center items-center px-4 relative overflow-hidden bg-white"
     >
-      {/* Animated background */}
-      <div
-        id="background-gradient"
-        className={`absolute inset-0 bg-gradient-to-br ${randomColor} opacity-0 z-0`}
-      />
+      {/* Animated background patterns */}
+      <div id="background-gradient" className="absolute inset-0 opacity-0 z-0">
+        <svg
+          className="absolute w-full h-full"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <pattern
+              id="dots"
+              width="10"
+              height="10"
+              patternUnits="userSpaceOnUse"
+            >
+              <circle cx="2" cy="2" r="1" fill="rgba(108, 99, 255, 0.1)" />
+            </pattern>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="rgba(108, 99, 255, 0.05)" />
+              <stop offset="100%" stopColor="rgba(236, 72, 153, 0.05)" />
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#dots)" />
+          <rect width="100%" height="100%" fill="url(#grad1)" />
+        </svg>
+      </div>
 
       {/* Animated particles */}
       <div className="absolute inset-0 z-0">
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 rounded-full bg-white/20"
+            className="absolute w-2 h-2 rounded-full bg-[#6c63ff]/20"
             initial={{
               x: Math.random() * window.innerWidth,
               y: Math.random() * window.innerHeight,
@@ -90,12 +103,12 @@ const HeroSection = ({
           >
             <motion.h1 className="text-4xl md:text-6xl font-bold relative z-10">
               Hi, I'm{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-violet-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6c63ff] to-pink-500">
                 {name}
               </span>
             </motion.h1>
             <motion.div
-              className="absolute -inset-1 rounded-lg bg-gradient-to-r from-pink-500 to-violet-500 opacity-30 blur-xl"
+              className="absolute -inset-1 rounded-lg bg-gradient-to-r from-[#6c63ff] to-pink-500 opacity-30 blur-xl"
               animate={{
                 scale: [1, 1.05, 1],
                 opacity: [0.2, 0.3, 0.2],
@@ -109,7 +122,7 @@ const HeroSection = ({
           </motion.div>
 
           <motion.h2
-            className="text-2xl md:text-4xl font-semibold mb-6 text-white/90"
+            className="text-2xl md:text-4xl font-semibold mb-6 text-gray-800"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -126,14 +139,14 @@ const HeroSection = ({
             {specializations.map((spec, index) => (
               <motion.span
                 key={index}
-                className="px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white font-medium relative overflow-hidden group"
+                className="px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-gray-800 font-medium relative overflow-hidden group shadow-sm"
                 initial={{ opacity: 0, scale: 0.8, x: -20 }}
                 animate={{ opacity: 1, scale: 1, x: 0 }}
                 transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
                 whileHover={{ scale: 1.05 }}
               >
                 <motion.span
-                  className="absolute inset-0 bg-gradient-to-r from-pink-500 to-violet-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute inset-0 bg-gradient-to-r from-[#6c63ff] to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   initial={{ x: "-100%" }}
                   whileHover={{ x: "0%" }}
                   transition={{ duration: 0.3 }}
@@ -151,14 +164,14 @@ const HeroSection = ({
           transition={{ delay: 1.2, duration: 0.8 }}
         >
           <motion.div
-            className="bg-white/10 backdrop-blur-md p-6 rounded-xl text-center border border-white/20 relative overflow-hidden group"
+            className="bg-white p-6 rounded-xl text-center border border-gray-100 relative overflow-hidden group shadow-md"
             whileHover={{
               y: -10,
               boxShadow: "0 10px 25px -5px rgba(236, 72, 153, 0.5)",
             }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <motion.div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <motion.div className="absolute inset-0 bg-gradient-to-br from-[#6c63ff]/10 to-pink-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="flex justify-center mb-4 relative z-10">
               <motion.div
                 animate={{
@@ -177,21 +190,21 @@ const HeroSection = ({
             <h3 className="text-xl font-semibold mb-2 relative z-10">
               Frontend
             </h3>
-            <p className="text-white/80 relative z-10">
+            <p className="text-gray-600 relative z-10">
               Creating responsive and interactive user experiences with React
               and TypeScript
             </p>
           </motion.div>
 
           <motion.div
-            className="bg-white/10 backdrop-blur-md p-6 rounded-xl text-center border border-white/20 relative overflow-hidden group"
+            className="bg-white p-6 rounded-xl text-center border border-gray-100 relative overflow-hidden group shadow-md"
             whileHover={{
               y: -10,
-              boxShadow: "0 10px 25px -5px rgba(139, 92, 246, 0.5)",
+              boxShadow: "0 10px 25px -5px rgba(108, 99, 255, 0.3)",
             }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <motion.div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 to-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <motion.div className="absolute inset-0 bg-gradient-to-br from-[#6c63ff]/10 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="flex justify-center mb-4 relative z-10">
               <motion.div
                 animate={{
@@ -208,21 +221,21 @@ const HeroSection = ({
               </motion.div>
             </div>
             <h3 className="text-xl font-semibold mb-2 relative z-10">Mobile</h3>
-            <p className="text-white/80 relative z-10">
+            <p className="text-gray-600 relative z-10">
               Building cross-platform mobile applications with Expo and React
               Native
             </p>
           </motion.div>
 
           <motion.div
-            className="bg-white/10 backdrop-blur-md p-6 rounded-xl text-center border border-white/20 relative overflow-hidden group"
+            className="bg-white p-6 rounded-xl text-center border border-gray-100 relative overflow-hidden group shadow-md"
             whileHover={{
               y: -10,
-              boxShadow: "0 10px 25px -5px rgba(59, 130, 246, 0.5)",
+              boxShadow: "0 10px 25px -5px rgba(108, 99, 255, 0.3)",
             }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <motion.div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <motion.div className="absolute inset-0 bg-gradient-to-br from-[#6c63ff]/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="flex justify-center mb-4 relative z-10">
               <motion.div
                 animate={{
@@ -241,7 +254,7 @@ const HeroSection = ({
             <h3 className="text-xl font-semibold mb-2 relative z-10">
               Backend
             </h3>
-            <p className="text-white/80 relative z-10">
+            <p className="text-gray-600 relative z-10">
               Developing robust server-side applications with FastAPI and modern
               Python
             </p>
@@ -256,10 +269,10 @@ const HeroSection = ({
         >
           <motion.a
             href="#skills"
-            className="inline-flex items-center gap-2 text-white bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-white/20 transition-colors duration-300"
+            className="inline-flex items-center gap-2 text-white bg-[#6c63ff] px-6 py-3 rounded-full border border-[#6c63ff]/20 hover:bg-[#5b54e0] transition-colors duration-300 shadow-md"
             whileHover={{
               y: 5,
-              boxShadow: "0 5px 15px rgba(255, 255, 255, 0.2)",
+              boxShadow: "0 5px 15px rgba(108, 99, 255, 0.4)",
             }}
             animate={{
               y: [0, 10, 0],
