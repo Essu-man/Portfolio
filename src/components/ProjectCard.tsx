@@ -69,7 +69,7 @@ const ProjectCard = ({
           className={`absolute inset-0 bg-gradient-to-br ${categoryGradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500 z-0`}
         />
 
-        <div className="relative overflow-hidden h-48">
+        <div className="relative overflow-hidden h-36 sm:h-48">
           <motion.div className="absolute inset-0 bg-black/20 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <motion.img
             whileHover={{ scale: 1.05 }}
@@ -120,7 +120,7 @@ const ProjectCard = ({
         </div>
 
         <CardHeader className="pb-2 relative z-10">
-          <CardTitle className="text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 transition-all duration-300">
+          <CardTitle className="text-lg sm:text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 transition-all duration-300">
             {title}
           </CardTitle>
           <motion.div

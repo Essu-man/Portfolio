@@ -33,7 +33,7 @@ const HeroSection = ({
   return (
     <section
       ref={scope}
-      className="min-h-screen flex flex-col justify-center items-center px-4 relative overflow-hidden bg-white"
+      className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 relative overflow-hidden bg-gray-900"
     >
       {/* Animated background patterns */}
       <div id="background-gradient" className="absolute inset-0 opacity-0 z-0">
@@ -88,7 +88,7 @@ const HeroSection = ({
         ))}
       </div>
 
-      <div className="container mx-auto max-w-4xl z-10 text-white">
+      <div className="container mx-auto max-w-4xl z-10 text-white w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -101,7 +101,7 @@ const HeroSection = ({
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            <motion.h1 className="text-4xl md:text-6xl font-bold relative z-10">
+            <motion.h1 className="text-3xl sm:text-4xl md:text-6xl font-bold relative z-10 text-white">
               Hi, I'm{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#6c63ff] to-pink-500">
                 {name}
@@ -122,7 +122,7 @@ const HeroSection = ({
           </motion.div>
 
           <motion.h2
-            className="text-2xl md:text-4xl font-semibold mb-6 text-gray-800"
+            className="text-xl sm:text-2xl md:text-4xl font-semibold mb-6 text-gray-200"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -131,7 +131,7 @@ const HeroSection = ({
           </motion.h2>
 
           <motion.div
-            className="flex flex-wrap justify-center gap-4 mb-12"
+            className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
@@ -139,7 +139,7 @@ const HeroSection = ({
             {specializations.map((spec, index) => (
               <motion.span
                 key={index}
-                className="px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-gray-800 font-medium relative overflow-hidden group shadow-sm"
+                className="px-3 sm:px-4 py-1 sm:py-2 bg-gray-800 border border-gray-700 rounded-full text-gray-200 text-sm sm:text-base font-medium relative overflow-hidden group shadow-sm"
                 initial={{ opacity: 0, scale: 0.8, x: -20 }}
                 animate={{ opacity: 1, scale: 1, x: 0 }}
                 transition={{ delay: 0.8 + index * 0.1, duration: 0.5 }}
@@ -158,13 +158,13 @@ const HeroSection = ({
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-16"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
         >
           <motion.div
-            className="bg-white p-6 rounded-xl text-center border border-gray-100 relative overflow-hidden group shadow-md"
+            className="bg-gray-800 p-6 rounded-xl text-center border border-gray-700 relative overflow-hidden group shadow-md"
             whileHover={{
               y: -10,
               boxShadow: "0 10px 25px -5px rgba(236, 72, 153, 0.5)",
@@ -187,17 +187,17 @@ const HeroSection = ({
                 <Code size={40} className="text-pink-400" />
               </motion.div>
             </div>
-            <h3 className="text-xl font-semibold mb-2 relative z-10">
+            <h3 className="text-xl font-semibold mb-2 relative z-10 text-white">
               Frontend
             </h3>
-            <p className="text-gray-600 relative z-10">
+            <p className="text-gray-300 relative z-10">
               Creating responsive and interactive user experiences with React
               and TypeScript
             </p>
           </motion.div>
 
           <motion.div
-            className="bg-white p-6 rounded-xl text-center border border-gray-100 relative overflow-hidden group shadow-md"
+            className="bg-gray-800 p-6 rounded-xl text-center border border-gray-700 relative overflow-hidden group shadow-md"
             whileHover={{
               y: -10,
               boxShadow: "0 10px 25px -5px rgba(108, 99, 255, 0.3)",
@@ -220,15 +220,17 @@ const HeroSection = ({
                 <Smartphone size={40} className="text-violet-400" />
               </motion.div>
             </div>
-            <h3 className="text-xl font-semibold mb-2 relative z-10">Mobile</h3>
-            <p className="text-gray-600 relative z-10">
+            <h3 className="text-xl font-semibold mb-2 relative z-10 text-white">
+              Mobile
+            </h3>
+            <p className="text-gray-300 relative z-10">
               Building cross-platform mobile applications with Expo and React
               Native
             </p>
           </motion.div>
 
           <motion.div
-            className="bg-white p-6 rounded-xl text-center border border-gray-100 relative overflow-hidden group shadow-md"
+            className="bg-gray-800 p-6 rounded-xl text-center border border-gray-700 relative overflow-hidden group shadow-md"
             whileHover={{
               y: -10,
               boxShadow: "0 10px 25px -5px rgba(108, 99, 255, 0.3)",
@@ -251,10 +253,10 @@ const HeroSection = ({
                 <Sparkles size={40} className="text-blue-400" />
               </motion.div>
             </div>
-            <h3 className="text-xl font-semibold mb-2 relative z-10">
+            <h3 className="text-xl font-semibold mb-2 relative z-10 text-white">
               Backend
             </h3>
-            <p className="text-gray-600 relative z-10">
+            <p className="text-gray-300 relative z-10">
               Developing robust server-side applications with FastAPI and modern
               Python
             </p>

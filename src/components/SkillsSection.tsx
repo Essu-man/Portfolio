@@ -28,7 +28,7 @@ const SkillCard = ({
 }: SkillCardProps) => {
   return (
     <motion.div whileHover={{ y: -10, scale: 1.03 }} className="w-full">
-      <Card className="h-full p-6 flex flex-col items-center text-center bg-gray-800/90 backdrop-blur-lg border border-gray-700/50 rounded-xl transition-all duration-300 overflow-hidden relative group">
+      <Card className="h-full p-4 sm:p-6 flex flex-col items-center text-center bg-gray-800/90 backdrop-blur-lg border border-gray-700/50 rounded-xl transition-all duration-300 overflow-hidden relative group">
         <motion.div
           className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
         />
@@ -150,7 +150,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
   return (
     <section
       id="skills"
-      className="py-20 bg-gradient-to-br from-gray-900 via-purple-900/30 to-gray-900 relative overflow-hidden"
+      className="py-12 sm:py-20 bg-gradient-to-br from-gray-900 via-purple-900/30 to-gray-900 relative overflow-hidden"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -178,7 +178,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
         ))}
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -186,7 +186,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
           className="text-center mb-16"
         >
           <motion.h2
-            className="text-3xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
@@ -222,7 +222,7 @@ const SkillsSection = ({ skills }: SkillsSectionProps) => {
           variants={containerVariants}
           initial="hidden"
           animate={controls}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
         >
           {skillsToDisplay.map((skill, index) => (
             <motion.div key={index} variants={itemVariants}>

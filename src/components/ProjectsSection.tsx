@@ -142,7 +142,7 @@ const ProjectsSection = ({
   return (
     <section
       id="projects"
-      className="py-20 px-4 bg-gradient-to-br from-gray-900 via-indigo-900/20 to-gray-900 relative overflow-hidden"
+      className="py-12 sm:py-20 px-4 bg-gradient-to-br from-gray-900 via-indigo-900/20 to-gray-900 relative overflow-hidden"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -176,10 +176,10 @@ const ProjectsSection = ({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
           <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400"
             animate={{
               backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
             }}
@@ -193,9 +193,9 @@ const ProjectsSection = ({
             {title}
           </motion.h2>
           <motion.div
-            className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mb-6 rounded-full"
+            className="w-16 sm:w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mb-4 sm:mb-6 rounded-full"
             animate={{
-              width: [80, 100, 80],
+              width: [60, 80, 60],
               opacity: [0.7, 1, 0.7],
             }}
             transition={{
@@ -204,7 +204,9 @@ const ProjectsSection = ({
               repeatType: "reverse",
             }}
           />
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">{subtitle}</p>
+          <p className="text-sm sm:text-base text-gray-300 max-w-3xl mx-auto">
+            {subtitle}
+          </p>
         </motion.div>
 
         <ProjectFilter
@@ -226,7 +228,7 @@ const ProjectsSection = ({
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mt-8"
             >
               {filteredProjects.length > 0 ? (
                 filteredProjects.map((project) => (
@@ -234,12 +236,12 @@ const ProjectsSection = ({
                 ))
               ) : (
                 <motion.div
-                  className="col-span-full text-center py-20"
+                  className="col-span-full text-center py-12 sm:py-20"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
                 >
-                  <p className="text-xl text-gray-300">
+                  <p className="text-base sm:text-xl text-gray-300">
                     No projects found in this category. Check back soon!
                   </p>
                 </motion.div>
