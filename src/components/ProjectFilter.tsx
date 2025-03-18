@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "./ui/button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface ProjectFilterProps {
   onFilterChange?: (category: string) => void;
@@ -20,29 +20,84 @@ const ProjectFilter = ({
     onFilterChange(category);
   };
 
+  // Get gradient based on category
+  const getCategoryGradient = (category: string) => {
+    switch (category.toLowerCase()) {
+      case "all":
+        return "from-violet-500 to-fuchsia-500";
+      case "web":
+        return "from-blue-500 to-indigo-600";
+      case "mobile":
+        return "from-purple-500 to-pink-600";
+      case "backend":
+        return "from-emerald-500 to-teal-600";
+      default:
+        return "from-gray-500 to-gray-600";
+    }
+  };
+
   return (
     <motion.div
-      className="w-full max-w-4xl mx-auto mb-8 p-4 bg-background rounded-lg shadow-sm"
+      className="w-full max-w-4xl mx-auto mb-8 p-6 bg-white/5 backdrop-blur-md rounded-xl border border-white/10 relative overflow-hidden"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex flex-wrap justify-center gap-3">
-        {categories.map((category) => (
-          <motion.div
-            key={category}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <Button
-              variant={selected === category ? "default" : "outline"}
-              onClick={() => handleFilterClick(category)}
-              className="px-6 py-2 rounded-full transition-all duration-300"
+      {/* Background animation */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 z-0"
+        animate={{
+          backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          repeatType: "loop",
+        }}
+        style={{ backgroundSize: "200% 200%" }}
+      />
+
+      <div className="flex flex-wrap justify-center gap-4 relative z-10">
+        {categories.map((category, index) => {
+          const isActive = selected === category;
+          const gradient = getCategoryGradient(category);
+
+          return (
+            <motion.div
+              key={category}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
             >
-              {category}
-            </Button>
-          </motion.div>
-        ))}
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative"
+              >
+                <Button
+                  variant={isActive ? "default" : "outline"}
+                  onClick={() => handleFilterClick(category)}
+                  className={`px-6 py-2 rounded-full transition-all duration-300 relative z-10 ${isActive ? `bg-gradient-to-r ${gradient} border-none text-white hover:shadow-lg` : "bg-white/5 border-white/20 text-white hover:bg-white/10"}`}
+                >
+                  {category}
+                </Button>
+
+                {/* Animated indicator for active filter */}
+                <AnimatePresence>
+                  {isActive && (
+                    <motion.div
+                      className={`absolute -inset-1 rounded-full bg-gradient-to-r ${gradient} opacity-30 blur-md -z-10`}
+                      initial={{ scale: 0, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 0.3 }}
+                      exit={{ scale: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            </motion.div>
+          );
+        })}
       </div>
     </motion.div>
   );
