@@ -23,7 +23,7 @@ const ProjectCard = ({
   imageUrl = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
   category = "web",
   technologies = ["React", "TypeScript", "Tailwind"],
-  githubUrl = "https://github.com",
+  githubUrl = "https://github.com/Essu-man",
   liveUrl = "https://example.com",
   onClick = () => {},
 }: ProjectCardProps) => {

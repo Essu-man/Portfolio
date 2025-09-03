@@ -50,9 +50,9 @@ export default function Home() {
 
       <main>
         <HeroSection
-          name="Your Name"
+          name="Constance Akua Essuman"
           title="Full-Stack Developer"
-          specializations={["React", "TypeScript", "Django", "Expo", "Firebase", "Vercel"]}
+          specializations={["React", "TypeScript", "Django", "Expo", "Neon DB", "PostgreSQL", "Vercel"]}
         />
 
         <div ref={skillsRef}>
@@ -65,18 +65,18 @@ export default function Home() {
 
         <div ref={contactRef}>
           <ContactSection
-            email="your.email@example.com"
-            phone="+1 (555) 123-4567"
-            location="Your City, Country"
+            email="essumanconstance514@gmail.com"
+            phone="+233 24 076 7261"
+            location="Accra, Ghana"
           />
         </div>
       </main>
 
       <Footer
         socialLinks={{
-          github: "https://github.com/yourusername",
-          linkedin: "https://linkedin.com/in/yourprofile",
-          email: "mailto:your.email@example.com",
+          github: "https://github.com/Essu-man",
+          linkedin: "https://www.linkedin.com/in/constance-akua-essuman-252502213/",
+          email: "mailto:essumanconstance514@gmail.com",
         }}
       />
     </div>

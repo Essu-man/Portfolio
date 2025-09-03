@@ -29,9 +29,9 @@ const Header = ({ onNavigate }: HeaderProps) => {
   ];
 
   const socialLinks = [
-    { icon: <Github size={18} />, href: "https://github.com", label: "GitHub" },
-    { icon: <Linkedin size={18} />, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: <Mail size={18} />, href: "mailto:contact@example.com", label: "Email" },
+    { icon: <Github size={18} />, href: "https://github.com/Essu-man", label: "GitHub" },
+    { icon: <Linkedin size={18} />, href: "https://linkedin.com/in/constance-akua-essuman-252502213/", label: "LinkedIn" },
+    { icon: <Mail size={18} />, href: "mailto:essumanconstance514@gmail.com", label: "Email" },
   ];
 
   return (

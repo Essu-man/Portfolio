@@ -23,9 +23,9 @@ interface ContactSectionProps {
 const ContactSection = ({
   title = "Get In Touch",
   subtitle = "I'm always open to new opportunities and collaborations. Feel free to reach out!",
-  email = "your.email@example.com",
-  phone = "+1 (555) 123-4567",
-  location = "Your City, Country",
+  email = "essumanconstance514@gmail.com",
+  phone = "+233 24 076 7261",
+  location = "Accra, Ghana",
 }: ContactSectionProps) => {
   const [formState, setFormState] = useState({
     name: "",
@@ -95,12 +95,12 @@ const ContactSection = ({
     {
       name: "Github",
       icon: <Github className="h-5 w-5" />,
-      url: "https://github.com/yourusername",
+      url: "https://github.com/Essu-man",
     },
     {
       name: "LinkedIn",
       icon: <Linkedin className="h-5 w-5" />,
-      url: "https://www.linkedin.com/in/yourprofile/",
+      url: "https://www.linkedin.com/in/constance-akua-essuman-252502213/",
     },
   ];
 
