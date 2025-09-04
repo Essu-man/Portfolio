@@ -17,7 +17,6 @@ export interface ProjectCardProps {
 }
 
 const ProjectCard = ({
-  id = "1",
   title = "Project Title",
   description = "A short description of the project showcasing the key features and technologies used.",
   imageUrl = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
@@ -25,7 +24,6 @@ const ProjectCard = ({
   technologies = ["React", "TypeScript", "Tailwind"],
   githubUrl = "https://github.com/Essu-man",
   liveUrl = "https://example.com",
-  onClick = () => {},
 }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
 

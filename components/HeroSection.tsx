@@ -9,8 +9,7 @@ import {
   Smartphone, 
   Sparkles, 
   Zap, 
-  Globe, 
-  Cpu 
+  Globe
 } from "lucide-react";
 
 interface HeroSectionProps {
@@ -135,7 +134,7 @@ const HeroSection = ({
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
               >
-                Hi, I'm{" "}
+                Hi, I&apos;m{" "}
               </motion.span>
               <motion.span
                 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 block"

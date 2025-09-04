@@ -103,7 +103,6 @@ const ProjectsSection = ({
   const [filteredProjects, setFilteredProjects] =
     useState<ProjectCardProps[]>(projects);
   const [activeFilter, setActiveFilter] = useState("All");
-  const [isChangingFilter, setIsChangingFilter] = useState(false);
 
   // Animation variants for container
   const containerVariants = {
@@ -118,8 +117,6 @@ const ProjectsSection = ({
 
   // Filter projects when activeFilter changes
   useEffect(() => {
-    setIsChangingFilter(true);
-
     const filterTimeout = setTimeout(() => {
       if (activeFilter === "All") {
         setFilteredProjects(projects);
@@ -130,8 +127,6 @@ const ProjectsSection = ({
         );
         setFilteredProjects(filtered);
       }
-
-      setIsChangingFilter(false);
     }, 300); // Short delay for animation
 
     return () => clearTimeout(filterTimeout);
